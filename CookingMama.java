@@ -95,12 +95,12 @@ public class CookingMama {
                 case 2 -> area2.enter(scanner, visitedAreas, dishNumber);
                 case 3 -> area3.enter(scanner, visitedAreas, dishNumber);
                 case 4 -> area4.enter(scanner, visitedAreas, dishNumber);
-                default -> -1; // Handle unexpected case or exit condition
+                default -> -1; // exit condition
             };
 
             // Check result
             if (nextArea < 0) {
-                // User chose to exit or some error occurred
+                // Player chose to exit or some error occurred
                 System.out.println("Exiting the current dish.");
                 return false;
             } else if (nextArea == 5) {
@@ -108,7 +108,7 @@ public class CookingMama {
                 System.out.println("Dish completed successfully!");
                 return true;
             } else {
-                // Move to the next area the user selected
+                // Move to the next area the Player selected
                 currentArea = nextArea;
             }
         }
