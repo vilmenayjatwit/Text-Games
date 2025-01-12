@@ -7,9 +7,9 @@ public class IV {
     	System.out.println("Area IV: Serve your dish correctly to comple it!");
     	
     	
-    	System.out.println("1) YES");
+    	System.out.println("1) Serve dish");
     	
-    	System.out.println("2) NO");
+    	System.out.println("2) Don't serve dish");
     	
     	System.out.println("Please type your choice:");
     	
@@ -28,7 +28,7 @@ public class IV {
     		}
     		else {
     			System.out.println("Invalid input. Please enter a number (1 or 2)!");
-    			n.next();
+    			scanner.next();
     		}
     	}
     	

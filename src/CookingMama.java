@@ -1,10 +1,15 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.HashSet;
+import java.util.Set;
 
 public class CookingMama {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ArrayList<String> visitedAreas = new ArrayList<>();
+
+        // Track completed dishes
+        Set<Integer> completedDishes = new HashSet<>(); 
 
         // Tracks how many dishes are completed (each dish = 1 star)
         int starCount = 0;
@@ -16,20 +21,22 @@ public class CookingMama {
         // Loop until the player earns 3 stars or exits
         while (starCount < 3) {
             System.out.println("\nYou currently have " + starCount + " star(s).");
+
             System.out.println("Which dish would you like to make?");
-            System.out.println("1) Cake");
-            System.out.println("2) Pizza");
-            System.out.println("3) Hamburger");
+            if (!completedDishes.contains(1)) System.out.println("1) Cake");
+            if (!completedDishes.contains(2)) System.out.println("2) Pizza");
+            if (!completedDishes.contains(3)) System.out.println("3) Hamburger");
             System.out.println("Type a number, or type 0 to exit.");
 
             // Get player choice
             int choice = -1;
             try {
-                choice = Integer.parseInt(scanner.nextLine());
+                choice = scanner.nextInt();
+                scanner.nextLine(); // Clear the input buffer
             } catch (NumberFormatException e) {
-                // Invalid input
                 System.out.println("Invalid input. Please enter a number.");
-                continue; // Skip loop and ask again
+                scanner.nextLine(); // Clear the invalid input
+                continue;
             }
 
             // Exit the game if the player types 0
@@ -50,6 +57,7 @@ public class CookingMama {
             // If the player completed the dish, +1 starCount
             if (dishCompleted) {
                 starCount++;
+                completedDishes.add(choice);
                 System.out.println("Dish completed! You earned a star.");
             } else {
                 // If the user quits, no star is earned
