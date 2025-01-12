@@ -7,13 +7,11 @@ public class IV {
     	System.out.println("Area IV: Serve your dish correctly to comple it!");
     	
     	
-    	
     	System.out.println("1) YES");
     	
     	System.out.println("2) NO");
     	
     	System.out.println("Please type your choice:");
-    	
     	
     	
     	int choice = -1; //Restart the dish
